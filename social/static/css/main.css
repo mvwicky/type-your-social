@@ -101,25 +101,34 @@ body {
     /*width: 50%;*/
 }
 
-form {
-    margin: 2em;
+#content {
+    border: 1px solid black;
+    margin: 2em 33%;
+    padding-bottom: 10px;
 }
 
 input {
-    margin: 2em;
+    margin-bottom: 15%;
+    margin-top: 15%;
 }
 
 input[type=text] {
     font-family: monospace;
     font-size: 16pt;
     text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
     width: 112pt;
 }
 
+#main-form {
+    border: 1px solid black;
+    padding: 25% 0;
+}
 
-
-
-
+a {
+    border: 1px solid black;
+}
 
 
 
