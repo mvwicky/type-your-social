@@ -13,8 +13,6 @@ from flask import (
 
 
 app = Flask(__name__)
-# app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
-# app.debug = True
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -40,4 +38,6 @@ def page_not_found(e):
 
 
 if __name__ == '__main__':
+    app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+    app.debug = True
     app.run()
