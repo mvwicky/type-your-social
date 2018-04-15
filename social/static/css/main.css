@@ -122,30 +122,6 @@ body {
   width: 94%;
 }
 
-input {
-  margin: 5% 0;
-}
-
-label {
-  font-family: monospace;
-  font-size: 20pt;
-  font-weight: bold;
-  text-decoration: underline;
-}
-
-input[type="submit"] {
-  font-size: 20pt;
-  width: auto;
-}
-
-input[type="text"] {
-  font-size: 20pt;
-  text-align: center;
-  margin-left: 25%;
-  margin-right: 25%;
-  width: auto;
-}
-
 #main-form {
   background-color: rgb(100, 100, 100);
   -webkit-border-radius: 20px;
@@ -178,6 +154,29 @@ footer a {
   display: inline-block;
   margin-left: 10px;
   margin-right: 10px;
+}
+input {
+  margin: 5% 0;
+}
+
+label {
+  font-family: monospace;
+  font-size: 20pt;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+input[type="submit"] {
+  font-size: 20pt;
+  width: auto;
+}
+
+input[type="text"] {
+  font-size: 20pt;
+  text-align: center;
+  margin-left: 25%;
+  margin-right: 25%;
+  width: auto;
 }
 
 #soc-err {

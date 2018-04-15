@@ -11,7 +11,9 @@ const WARNINGS = [
   "Why are you doing this?",
   "Please stop.",
   "Stop typing.",
-  "You need to stop this."
+  "You need to stop this.",
+  "Consider your actions.",
+  "You're doing yourself no good."
 ];
 function* warnings() {
   var index;
@@ -54,9 +56,6 @@ function onloadFunction() {
     if (!KEYS_RE.test(e.key)) {
       return;
     }
-    /* if (["ArrowDown", "ArrowUp", "ArrowLeft", "ArrowRight"].includes(e.key)) {
-      return;
-    } */
     var rep = [];
     var val = socInput.value.replace(/\D/g, "").split("");
     if (val.length === 9) {
