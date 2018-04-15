@@ -2,7 +2,14 @@ import os
 
 import click
 from flask import (
-    Flask, render_template, request, url_for, send_from_directory, abort)
+    Flask,
+    render_template,
+    request,
+    url_for,
+    send_from_directory,
+    abort,
+    redirect
+)
 
 
 app = Flask(__name__)
@@ -14,6 +21,7 @@ app.debug = True
 def index():
     click.echo(url_for('static', filename='css/style.css'))
     if request.method == 'POST':
+        return redirect(url_for('index'))
         abort(404)
     else:
         return render_template('index.html')
