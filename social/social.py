@@ -10,9 +10,11 @@ from flask import (
     abort,
     redirect
 )
+from flask_sslify import SSLify
 
 
 app = Flask(__name__)
+sslify = SSLify(app)
 
 
 @app.route('/', methods=['GET', 'POST'])
