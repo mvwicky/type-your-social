@@ -8,7 +8,7 @@ from flask import (
     url_for,
     send_from_directory,
     abort,
-    redirect
+    redirect,
 )
 from flask_sslify import SSLify
 
@@ -16,22 +16,35 @@ from flask_sslify import SSLify
 app = Flask(__name__)
 sslify = SSLify(app)
 
+DESC = ' '.join(
+    (
+        'Type your Social Security number into this clearly legitimate page.',
+        'Do not actually do this.',
+        'For real, this is a bad idea.',
+        'Take measures to protect your data.',
+    )
+)
+KEYWORDS = ','.join(('Social', 'Security', 'Social Security', ))
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     click.echo(url_for('static', filename='css/style.css'))
     if request.method == 'POST':
         return redirect(url_for('index'))
+
         abort(404)
     else:
-        return render_template('index.html')
+        return render_template('index.html', desc=DESC, kw=KEYWORDS)
 
 
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(
         os.path.join(app.root_path, 'static'),
-        'favicon.ico', mimetype='image/vnd.microsoft.icon')
+        'favicon.ico',
+        mimetype='image/vnd.microsoft.icon',
+    )
 
 
 @app.errorhandler(404)

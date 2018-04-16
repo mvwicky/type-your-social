@@ -1,13 +1,22 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="en-US">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Type In Your Social!</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="{{ desc }}">
+    <meta property="og:image" content="{{ url_for('static', filename='apple-touch-icon.png') }}">
+    <meta property="og:url" content="https://www.typeyoursocial.com">
+    <meta property="og:title" content="Type Your Social!">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Michael Van Wickle">
+    <meta name="description" content="{{ desc }}">
+    <meta name="keywords" content="{{ kw }}">
+
+    <title>Type In Your Social!</title>
     <link rel="canonical"  href="https://www.typeyoursocial.com">
     <link rel="apple-touch-icon" href="{{ url_for('static', filename='apple-touch-icon.png') }}">
     <!-- Place favicon.ico in the root directory -->
@@ -34,9 +43,9 @@
     </div>
 
     <footer>
-        <a href="https://apnews.com/">Please navigate away from this site as soon as possible</a>
+        <a href="https://apnews.com/">Please navigate away from this site as soon as possible (Click here)</a>
         <br>
-        <a href="https://www.youtube.com/watch?v=Erp8IAUouus">Video</a>
+        <a href="https://www.youtube.com/watch?v=Erp8IAUouus">Informational Video</a>
     </footer>
 
     {# <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
