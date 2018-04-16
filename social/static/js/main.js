@@ -43,8 +43,8 @@ function onloadFunction() {
 
   mainForm.addEventListener("submit", function(e) {
     var inp = socInput.value;
+    socInput.value = '';
     if (inp.search(ADM_RE) !== -1) {
-      socInput.value = '';
       let adv = ADVERBS[Math.floor(Math.random() * ADVERBS.length)];
       alert(`What ${adv} is wrong with you?`);
     }
