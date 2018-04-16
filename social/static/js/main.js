@@ -42,9 +42,9 @@ function onloadFunction() {
   var socErr = document.getElementById("soc-err");
 
   mainForm.addEventListener("submit", function(e) {
-    e.preventDefault();
     var inp = socInput.value;
     if (inp.search(ADM_RE) !== -1) {
+      socInput.value = '';
       let adv = ADVERBS[Math.floor(Math.random() * ADVERBS.length)];
       alert(`What ${adv} is wrong with you?`);
     }

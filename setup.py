@@ -8,7 +8,7 @@ EMAIL = 'mvanwickle@gmail.com'
 AUTHOR = 'Michael Van Wickle'
 
 # What packages are required for this module to be executed?
-REQUIRED = ['Flask']
+REQUIRED = ['Flask', 'Flask-SSLify']
 
 setup(
     name=NAME,

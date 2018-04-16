@@ -33,9 +33,9 @@
         <![endif]-->
 
     <div id="content">
-        <form id="main-form" action="/" method="post" autocomplete="pleaseturnoff">
+        <form id="main-form" action="/incr" method="post" autocomplete="pleaseturnoff">
             <label for="social">Social Security Number</label>
-            <input id="soc-inp" name="Social" type="text" placeholder="XXX-XX-XXXX" maxlength="11" size="12">
+            <input id="soc-inp" type="text" placeholder="XXX-XX-XXXX" maxlength="11" size="12">
             <div id="soc-err" class="invisible"></div>
             <br>
             <input type="submit" name="sub-social" size="20" value="Submit">
@@ -46,6 +46,8 @@
         <a href="https://apnews.com/">Please navigate away from this site as soon as possible (Click here)</a>
         <br>
         <a href="https://www.youtube.com/watch?v=Erp8IAUouus">Informational Video</a>
+        <br>
+        {{ count }}
     </footer>
 
     {# <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
