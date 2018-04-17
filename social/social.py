@@ -9,11 +9,15 @@ from flask import (
     send_from_directory,
     redirect,
 )
+from flask_caching import Cache
+from flask_compress import Compress
 from flask_sslify import SSLify
 
 HERE = os.path.split(os.path.abspath(__file__))[0]
 
 app = Flask(__name__)
+cache = Cache(app, config={'CACHE_TYPE': 'simple'})
+compress = Compress(app)
 sslify = SSLify(app)
 COUNT_FILE = os.path.join(HERE, 'static', 'count')
 COUNTER = mp.Value('I', 0)
