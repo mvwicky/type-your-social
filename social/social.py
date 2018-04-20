@@ -19,11 +19,18 @@ app = Flask(__name__)
 cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 compress = Compress(app)
 sslify = SSLify(app)
-COUNT_FILE = os.path.join(HERE, 'static', 'count')
+
+COUNT_FILE = os.path.join(os.environ.get('HOME', '.'), 'count')
+if not os.path.isfile(COUNT_FILE):
+    with open(COUNT_FILE, 'wt') as f:
+        pass
+
 COUNTER = mp.Value('I', 0)
 with COUNTER.get_lock():
     with open(COUNT_FILE, 'rt') as f:
-        COUNTER.value = int(f.read())
+        c = f.read()
+        if c and c.isnumeric():
+            COUNTER.value = int(c)
 
 
 DESC = ' '.join(

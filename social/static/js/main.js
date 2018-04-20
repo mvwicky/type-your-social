@@ -1,8 +1,24 @@
 "use strict";
 
+function* makeRandomGenerator(a) {
+  var index;
+  while (true) {
+    index = Math.floor(Math.random() * a.length);
+    yield a[index];
+  }
+}
+
 const ADM_RE = /[0-9]{3}-?[0-9]{2}-?[0-9]{4}/;
 const KEYS_RE = /\w|\s/i;
 const ADVERBS = ["exactly", "specifically", "seriously"];
+const SUBMIT_ALERT_MSG = [
+  "What exactly is wrong with you?",
+  "What specifically is wrong with you?",
+  "Why would you actually do that?",
+  "Do not do that on any other site.",
+  "That was unadvisable"
+];
+const subAlertGen = makeRandomGenerator(SUBMIT_ALERT_MSG);
 const URLS = [
   "https://www.consumer.ftc.gov/articles/0272-how-keep-your-personal-information-secure",
   "https://ist.mit.edu/security/protecting_data"
@@ -22,7 +38,8 @@ function* warnings() {
     yield WARNINGS[index];
   }
 }
-const warnGen = warnings();
+// const warnGen = warnings();
+const warnGen = makeRandomGenerator(WARNINGS);
 
 (function(f) {
   if (
@@ -43,10 +60,9 @@ function onloadFunction() {
 
   mainForm.addEventListener("submit", function(e) {
     var inp = socInput.value;
-    socInput.value = '';
+    socInput.value = "";
     if (inp.search(ADM_RE) !== -1) {
-      let adv = ADVERBS[Math.floor(Math.random() * ADVERBS.length)];
-      alert(`What ${adv} is wrong with you?`);
+      alert(subAlertGen.next().value);
     }
   });
   socInput.addEventListener("keyup", function(e) {
