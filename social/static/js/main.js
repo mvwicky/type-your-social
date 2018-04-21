@@ -1,7 +1,7 @@
 "use strict";
 
 function* makeRandomGenerator(a) {
-  var index;
+  let index = 0;
   while (true) {
     index = Math.floor(Math.random() * a.length);
     yield a[index];
@@ -10,7 +10,7 @@ function* makeRandomGenerator(a) {
 
 const ADM_RE = /[0-9]{3}-?[0-9]{2}-?[0-9]{4}/;
 const KEYS_RE = /\w|\s/i;
-const ADVERBS = ["exactly", "specifically", "seriously"];
+
 const SUBMIT_ALERT_MSG = [
   "What exactly is wrong with you?",
   "What specifically is wrong with you?",
@@ -18,7 +18,6 @@ const SUBMIT_ALERT_MSG = [
   "Do not do that on any other site.",
   "That was unadvisable"
 ];
-const subAlertGen = makeRandomGenerator(SUBMIT_ALERT_MSG);
 const URLS = [
   "https://www.consumer.ftc.gov/articles/0272-how-keep-your-personal-information-secure",
   "https://ist.mit.edu/security/protecting_data"
@@ -31,14 +30,8 @@ const WARNINGS = [
   "Consider your actions.",
   "You're doing yourself no good."
 ];
-function* warnings() {
-  var index;
-  while (true) {
-    index = Math.floor(Math.random() * WARNINGS.length);
-    yield WARNINGS[index];
-  }
-}
-// const warnGen = warnings();
+
+const subAlertGen = makeRandomGenerator(SUBMIT_ALERT_MSG);
 const warnGen = makeRandomGenerator(WARNINGS);
 
 (function(f) {
